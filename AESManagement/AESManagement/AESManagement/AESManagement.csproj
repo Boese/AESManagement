@@ -280,10 +280,10 @@
     <None Include="Service References\AESDataService\DataService.wsdl" />
     <Content Include="Views\Application\Application.cshtml" />
     <Content Include="Views\Application\Applicant.cshtml" />
+    <Content Include="Views\Pending\Pending.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Pending\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
