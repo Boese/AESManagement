@@ -279,10 +279,10 @@
     <Content Include="Views\Shared\EditorTemplates\SelectRoleEditorViewModel.cshtml" />
     <None Include="Service References\AESDataService\DataService.wsdl" />
     <Content Include="Views\Application\Application.cshtml" />
+    <Content Include="Views\Pending\_Pending.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Pending\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
