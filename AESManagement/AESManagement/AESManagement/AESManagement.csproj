@@ -162,6 +162,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\PendingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,10 +237,23 @@
     </Content>
     <None Include="Service References\AESDataService\configuration91.svcinfo" />
     <None Include="Service References\AESDataService\configuration.svcinfo" />
+    <None Include="Service References\AESDataService\DataService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AESDataService\DataService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AESDataService\DataService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AESDataService\DataService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\AESDataService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\AESDataService\DataService.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -269,6 +283,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Pending\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
