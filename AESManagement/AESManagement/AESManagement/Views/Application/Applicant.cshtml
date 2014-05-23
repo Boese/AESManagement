@@ -1,0 +1,17 @@
+﻿@model AESManagement.AESDataService.ApplicantApp
+@{
+    ViewBag.Title = "Applicant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        @*@Html.Partial("Pending.cshtml")*@
+        <div class="jumbotron">Pending Section</div>
+    </div>
+    <div class="col-md-9">
+        <div class="jumbotron">Applicant Section</div>
+        @Html.Partial("~/Views/Application/Application.cshtml")
+    </div>
+</div>
+
