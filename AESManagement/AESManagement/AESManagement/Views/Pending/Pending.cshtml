@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<AESManagement.AESDataService.Applicant>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -14,20 +17,6 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.fullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.locked)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.time)
-        </td>
-        <td>
-        </td>
-    </tr>
-}
+@Html.DisplayForModel()
 
 </table>

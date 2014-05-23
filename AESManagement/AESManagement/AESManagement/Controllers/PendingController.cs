@@ -11,12 +11,12 @@ namespace AESManagement.Controllers
     {
         //
         // GET: /Pending/
-        public async Task<ActionResult> UpdatePending()
+        public ActionResult UpdatePending()
         {
-            AESManagement.AESDataService.Applicant[] model;
+            IEnumerable<AESManagement.AESDataService.Applicant> model;
             using (AESDataService.DataServiceClient client = new AESDataService.DataServiceClient())
             {
-                model = await client.getApplicationsWithStatusAsync("new");
+                model = client.getApplicationsWithStatus("new");
             }
             return View(model);
         }
