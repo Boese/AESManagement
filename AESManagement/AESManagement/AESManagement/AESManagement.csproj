@@ -265,6 +265,7 @@
     <Content Include="Views\Shared\EditorTemplates\SelectRoleEditorViewModel.cshtml" />
     <None Include="Service References\AESDataService\DataService.wsdl" />
     <Content Include="Views\Application\Application.cshtml" />
+    <Content Include="Views\Application\Applicant.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
