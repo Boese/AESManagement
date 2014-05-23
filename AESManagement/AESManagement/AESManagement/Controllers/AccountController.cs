@@ -199,7 +199,7 @@ namespace AESManagement.Controllers
                         idManager.AddUserToRole(user.Id, role.RoleName);
                     }
                 }
-                return RedirectToAction("index");
+                return RedirectToAction("Index");
             }
             return View();
         }
@@ -345,7 +345,7 @@ namespace AESManagement.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Application", "Application");
             }
         }
 
