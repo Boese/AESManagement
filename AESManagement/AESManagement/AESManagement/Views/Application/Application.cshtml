@@ -1,188 +1,249 @@
 ﻿@model AESManagement.AESDataService.ApplicantApp
 
-<div class="dashboard-entry">
-    <section class="app-field">
-        @Html.Label("Name (First, MI, Last):")
-        @Html.DisplayFor(m => m.personalInfo.firstName)
-        @Html.DisplayFor(m => m.personalInfo.middleName)
-        @Html.DisplayFor(m => m.personalInfo.lastName)
-    </section>
-    <section class="app-field">
-        @Html.Label("Social Security Number:")
-        @Html.DisplayFor(m => m.personalInfo.socialNum)
-    </section>
-    <section class="app-field">
-        @Html.Label("Address (Street, City, State, Zip):")
-        @Html.DisplayFor(m => m.personalInfo.street)
-        @Html.DisplayFor(m => m.personalInfo.city)
-        @Html.DisplayFor(m => m.personalInfo.state)
-        @Html.DisplayFor(m => m.personalInfo.zip)
-    </section>
-    <section class="app-field">
-        @Html.Label("Phone:")
-        @Html.DisplayFor(m => m.personalInfo.Phone)
-    </section>
-    <section class="app-field">
-        @Html.Label("Aliases:")
-        @Html.DisplayFor(m => m.personalInfo.alias)
-    </section>
-    <section class="app-field">
-        @Html.Label("Email Address:")
-        @Html.DisplayFor(m => m.personalInfo.email)
-    </section>
+<div class="row-fluid">
+    <textarea class="form-control col-md-12" id="textarea" rows="6" placeholder="Enter Notes"></textarea>
+    <br />
+    <button class="btn btn-success">Save</button>
+    <br />
+    <hr />
 </div>
-@Html.Label("Position:")
-<div class="dashboard-entry">
-    <section class="app-field">
-        @Html.Label("Positions Applying for:")
-        <!--Need to load this data or add it to the application-->
-    </section>
-    <section class="app-field">
-        @Html.Label("Days/Hours Available:", new { style = "width:4vw; " })
-        @Html.Label("From:")
-        @Html.Label("To:")
-    </section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.mondayFrom)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.tuesdayFrom)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.wednesdayFrom)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.thursdayFrom)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.fridayFrom)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.saturdayFrom)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.sundayFrom)</section>
-    <section class="app-field">
-        @Html.Label("Salary Expectation:")
-        @Html.DisplayFor(m => m.availability.salaryExpected)
-    </section>
-    <section class="app-field">
-        @Html.Label("Full Time (y/n):")
-        @Html.DisplayFor(m => m.availability.fullTimeYN)
-    </section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.mondayTo)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.tuesdayTo)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.wednesdayTo)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.thursdayTo)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.fridayTo)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.saturdayTo)</section>
-    <section class="app-field">@Html.DisplayFor(m => m.availability.sundayTo)</section>
-    <section class="app-field">
-        @Html.Label("Days? (y/n):")
-        @Html.DisplayFor(m => m.availability.daysYN)
-    </section>
-    <section class="app-field">
-        @Html.Label("Evenings?:")
-        @Html.DisplayFor(m => m.availability.eveningsYN)
-    </section>
-    <section class="app-field">
-        @Html.Label("Weekends:")
-        @Html.DisplayFor(m => m.availability.weekendsYN)
-    </section>
-    @Html.Label("M", new { style = "width: 5vw; height: 3.5vh; float:left; text-align:center;" })
-    @Html.Label("T", new { style = "width: 5vw; height: 3.5vh; float:left; text-align:center;" })
-    @Html.Label("W", new { style = "width: 5vw; height: 3.5vh; float:left; text-align:center;" })
-    @Html.Label("Th", new { style = "width: 5vw; height: 3.5vh; float:left; text-align:center;" })
-    @Html.Label("F", new { style = "width: 5vw; height: 3.5vh; float:left; text-align:center;" })
-    @Html.Label("S", new { style = "width: 5vw; height: 3.5vh; float:left; text-align:center;" })
-    @Html.Label("Su", new { style = "width: 5vw; height: 3.5vh; float:left; text-align:center;" })
+
+<div class="panel panel-success">
+    <div class="panel-heading">Personal Info</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Name (First, MI, Last): ")
+                @Html.DisplayFor(m => m.personalInfo.firstName)
+                @Html.DisplayFor(m => m.personalInfo.middleName)
+                @Html.DisplayFor(m => m.personalInfo.lastName)
+            </div>
+            <div class="col-md-6">
+                @Html.Label("Social Security Number: ")
+                @Html.DisplayFor(m => m.personalInfo.socialNum)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Address (Street, City, State, Zip): ")
+                @Html.DisplayFor(m => m.personalInfo.street)
+                @Html.DisplayFor(m => m.personalInfo.city)
+                @Html.DisplayFor(m => m.personalInfo.state)
+                @Html.DisplayFor(m => m.personalInfo.zip)
+            </div>
+            <div class="col-md-6">
+                @Html.Label("Phone: ")
+                @Html.DisplayFor(m => m.personalInfo.Phone)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Email Address: ")
+                @Html.DisplayFor(m => m.personalInfo.email)
+            </div>
+            <div class="col-md-6">
+                @Html.Label("Aliases: ")
+                @Html.DisplayFor(m => m.personalInfo.alias)
+            </div>
+        </div>
+    </div>
 </div>
-@Html.Label("Job History:")
-@foreach (var x in Model.jobHistory)
-{
-    <div class="dashboard-entry">
-        <section class="app-field" style="width:35.6vw;float:left;">
-            @Html.Label("Employer:")
-            @Html.DisplayFor(m => x.employer)
-        </section>
-        <section class="app-field" style="width:14.4vw;float:left;">
-            @Html.Label("From (mo/yr):")
-            @Html.DisplayFor(m => x.fromDate)
-        </section>
-        <section class="app-field" style="width:14.4vw;float:left;">
-            @Html.Label("To (mo/yr):")
-            @Html.DisplayFor(m => x.toDate)
-        </section>
-        <section class="app-field" style="width:35.6vw;float:left;">
-            @Html.Label("Address (Street, City, State, Zip):")
-            @Html.DisplayFor(m => x.street)
-            @Html.DisplayFor(m => x.city)
-            @Html.DisplayFor(m => x.stateAbrev)
-            @Html.DisplayFor(m => x.zip)
-        </section>
-        <section class="app-field" style="width:14.4vw;float:left;">
-            @Html.Label("Phone:")
-            @Html.DisplayFor(m => x.phone)
-        </section>
-        <section class="app-field" style="width:14.4vw;float:left;">
-            @Html.Label("Supervisor:")
-            @Html.DisplayFor(m => x.supervisor)
-        </section>
-        <section class="app-field" style="width:35.6vw;float:left;">
-            @Html.Label("Position:")
-            @Html.DisplayFor(m => x.position)
-        </section>
-        <section class="app-field" style="width:14.4vw;float:left;">
-            @Html.Label("Starting salary:")
-            @Html.DisplayFor(m => x.startSalary)
-        </section>
-        <section class="app-field" style="width:14.4vw;float:left;">
-            @Html.Label("Ending salary:")
-            @Html.DisplayFor(m => x.endSalary)
-        </section>
-        <section class="app-field" style="width:64.4vw;float:left;">
-            @Html.Label("Reason for leaving:")
-            @Html.DisplayFor(m => x.reasonLeave)
-        </section>
-        <section class="app-field" style="width:64.4vw;float:left;height:10vh;">
-            @Html.Label("Describe your responsibilities:")
-            @Html.DisplayFor(m => x.duties)
-        </section>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Availability</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                @Html.Label("Positions Applying for: ")
+                @Html.DisplayFor(m => m.personalInfo.Applications.FirstOrDefault().availablePosId)
+            </div>
+            <div class="col-md-4">
+                @Html.Label("Salary Expectation: ")
+                @Html.DisplayFor(m => m.availability.salaryExpected)
+            </div>
+            <div class="col-md-4">
+                @Html.Label("Full Time: ")
+                @Html.DisplayFor(m => m.availability.fullTimeYN)
+            </div>
+        </div>
+        <div class="row">
+            <hr />
+            <div class="col-md-6">
+                <h5><b>Availability Schedule: </b></h5>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(m => m.availability.mondayFrom) - @Html.DisplayFor(m => m.availability.mondayTo)</td>
+                    <td>@Html.DisplayFor(m => m.availability.tuesdayFrom) - @Html.DisplayFor(m => m.availability.tuesdayTo)</td>
+                    <td>@Html.DisplayFor(m => m.availability.wednesdayFrom) - @Html.DisplayFor(m => m.availability.wednesdayTo)</td>
+                    <td>@Html.DisplayFor(m => m.availability.thursdayFrom) - @Html.DisplayFor(m => m.availability.thursdayTo)</td>
+                    <td>@Html.DisplayFor(m => m.availability.fridayFrom) - @Html.DisplayFor(m => m.availability.fridayTo)</td>
+                    <td>@Html.DisplayFor(m => m.availability.saturdayFrom) - @Html.DisplayFor(m => m.availability.saturdayTo)</td>
+                    <td>@Html.DisplayFor(m => m.availability.sundayFrom) - @Html.DisplayFor(m => m.availability.sundayTo)</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-}
-@Html.Label("Education:")
-@foreach (var x in Model.education)
-{
-    <div class="dashboard-entry">
-        <section class="app-field" style="width:26vw;float:left;">
-            @Html.Label("Name and address of school:")
-            @Html.DisplayFor(m => x.name)
-            @Html.DisplayFor(m => x.street)
-            @Html.DisplayFor(m => x.city)
-            @Html.DisplayFor(m => x.stateAbrev)
-            @Html.DisplayFor(m => x.zip)
-        </section>
-        <section class="app-field" style="width:12vw;float:left;">
-            @Html.Label("Years attended:")
-            @Html.DisplayFor(m => x.yearFrom)
-            @Html.DisplayFor(m => x.yearTo)
-        </section>
-        <section class="app-field" style="width:12vw;float:left;">
-            @Html.Label("Graduated (y/n):")
-            @Html.DisplayFor(m => x.graduatedYN)
-        </section>
-        <section class="app-field" style="width:14vw;float:left;">
-            @Html.Label("Degree/major:")
-            @Html.DisplayFor(m => x.degreeMajor)
-        </section>
+</div>
+<div class="panel panel-success">
+    <div class="panel-heading">Job History</div>
+    <div class="panel-body">
+        @foreach (var x in Model.jobHistory)
+        {
+            if (x.employer != null)
+            {
+                <div class="row">
+                    <h4><b>Employer</b></h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Label("Employer:")
+                            @Html.DisplayFor(m => x.employer)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("From (mo/yr):")
+                            @Html.DisplayFor(m => x.fromDate)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Label("Address (Street, City, State, Zip):")
+                            @Html.DisplayFor(m => x.street)
+                            @Html.DisplayFor(m => x.city)
+                            @Html.DisplayFor(m => x.stateAbrev)
+                            @Html.DisplayFor(m => x.zip)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("To (mo/yr):")
+                            @Html.DisplayFor(m => x.toDate)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Label("Phone:")
+                            @Html.DisplayFor(m => x.phone)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Supervisor:")
+                            @Html.DisplayFor(m => x.supervisor)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Label("Position:")
+                            @Html.DisplayFor(m => x.position)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Starting salary:")
+                            @Html.DisplayFor(m => x.startSalary)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Label("Ending salary:")
+                            @Html.DisplayFor(m => x.endSalary)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Reason for leaving:")
+                            @Html.DisplayFor(m => x.reasonLeave)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.Label("Describe your responsibilities:")
+                            @Html.DisplayFor(m => x.duties)
+                        </div>
+                    </div>
+                </div>
+            }
+        }
     </div>
-}
-@Html.Label("References:")
-@foreach (var x in Model.reference)
-{
-    <div class="dashboard-entry">
-        <section class="app-field" style="width:20vw;float:left;">
-            @Html.Label("Name:")
-            @Html.DisplayFor(m => x.name)
-        </section>
-        <section class="app-field" style="width:14vw;float:left;">
-            @Html.Label("Phone:")
-            @Html.DisplayFor(m => x.phone)
-        </section>
-        <section class="app-field" style="width:14vw;float:left;">
-            @Html.Label("Company:")
-            @Html.DisplayFor(m => x.company)
-        </section>
-        <section class="app-field" style="width:14vw;float:left;">
-            @Html.Label("Title:")
-            @Html.DisplayFor(m => x.title)
-        </section>
+</div>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Education</div>
+    <div class="panel-body">
+        @foreach (var x in Model.education)
+        {
+            if (x.name != null)
+            {
+                <div class="row">
+                    <h4><b>Education </b></h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Label("Name and address of school:")
+                            @Html.DisplayFor(m => x.name)
+                            @Html.DisplayFor(m => x.street)
+                            @Html.DisplayFor(m => x.city)
+                            @Html.DisplayFor(m => x.stateAbrev)
+                            @Html.DisplayFor(m => x.zip)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Years attended:")
+                            @Html.DisplayFor(m => x.yearFrom)
+                            @Html.DisplayFor(m => x.yearTo)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Label("Graduated (y/n):")
+                            @Html.DisplayFor(m => x.graduatedYN)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Degree/major:")
+                            @Html.DisplayFor(m => x.degreeMajor)
+                        </div>
+                    </div>
+                </div>
+            }
+            
+        }
     </div>
-}
+</div>
+
+<div class="panel panel-success">
+    <div class="panel-heading">References</div>
+    <div class="panel-body">
+        @foreach (var x in Model.reference)
+        {
+            if (x.name != null)
+            {
+                <div class="row">
+                    <h4><b>Reference</b></h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Label("Name: ")
+                            @Html.DisplayFor(m => x.name)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Phone: ")
+                            @Html.DisplayFor(m => x.phone)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Label("Company: ")
+                            @Html.DisplayFor(m => x.company)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Title: ")
+                            @Html.DisplayFor(m => x.title)
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

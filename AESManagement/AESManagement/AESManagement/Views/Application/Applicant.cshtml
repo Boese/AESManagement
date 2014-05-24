@@ -3,21 +3,20 @@
     ViewBag.Title = "Applicant";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<br />
 <div class="row">
     <div class="col-md-3">
         <div class="jumbotron">
             <div class="row">
-                <div id="pending"></div>
-            </div>
-            <div class="row">
-                @*@Html.Partial("Notes")*@
+                <div id="pending">Pending Applicants</div>
             </div>
         </div>
     </div>
     <div class="col-md-9">
-        <div class="jumbotron">Applicant Section</div>
         @Html.Partial("~/Views/Application/Application.cshtml")
     </div>
 </div>
 
+<script>
+    $('#pending').load('/Pending/UpdatePending');
+</script>
