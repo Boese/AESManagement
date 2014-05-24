@@ -20,8 +20,8 @@ namespace AESManagement.Controllers
             {
                 using (DataServiceClient client = new DataServiceClient())
                 {
+                    await client.lockAppAsync(id);
                     model = await client.getApplicationAsync(id);
-                    //await client.lockAppAsync(id);
                 }
                 return View(model);
             }
@@ -34,10 +34,19 @@ namespace AESManagement.Controllers
         {
                 using (DataServiceClient client = new DataServiceClient())
                 {
+                    client.unlockApp(noteModel.appId);
                     client.updateNotes(noteModel.appId, noteModel.note);
                 }
 
                 return RedirectToAction("Applicant", "Application", noteModel.appId);
+        }
+
+        public void unlockUser(int appId)
+        {
+            using(DataServiceClient client = new DataServiceClient())
+            {
+                client.unlockApp(appId);
+            }
         }
 
 	}
