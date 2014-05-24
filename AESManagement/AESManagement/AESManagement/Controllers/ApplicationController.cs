@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace AESManagement.Controllers
 {
+    [Authorize]
     public class ApplicationController : Controller
     {
         //
         // GET: /Application/
-        [Authorize]
         public async Task<ActionResult> Applicant(int id = 1)
         {
             AESManagement.AESDataService.ApplicantApp model = new AESManagement.AESDataService.ApplicantApp();

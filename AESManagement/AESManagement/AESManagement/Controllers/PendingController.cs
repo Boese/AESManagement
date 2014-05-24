@@ -7,11 +7,11 @@ using System.Web.Mvc;
 
 namespace AESManagement.Controllers
 {
+    [Authorize]
     public class PendingController : Controller
     {
         //
         // GET: /Pending/
-        [Authorize]
         public ActionResult UpdatePending()
         {
             List<AESManagement.AESDataService.Applicant> model = new List<AESDataService.Applicant>();
