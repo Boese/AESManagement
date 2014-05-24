@@ -1,18 +1,7 @@
-﻿@model AESManagement.AESDataService.Applicant
+﻿@model IEnumerable<AESManagement.AESDataService.Applicant>
 
-@{
-    ViewBag.Title = "View1";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+@foreach (var item in Model) {
+              
+    @Html.ActionLink(item.fullName, "Applicant", "Application", new { id = item.id }, null)
 }
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.fullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fullName)
-        </dd>
-    </dl>
-</div>
 

@@ -13,12 +13,15 @@ namespace AESManagement.Controllers
         // GET: /Pending/
         public ActionResult UpdatePending()
         {
-            AESManagement.AESDataService.Applicant model;
+            List<AESManagement.AESDataService.Applicant> model = new List<AESDataService.Applicant>();
             using (AESDataService.DataServiceClient client = new AESDataService.DataServiceClient())
             {
-                model = client.getApplicationsWithStatus("new").First();
+                foreach (var app in client.getApplicationsWithStatus("new"))
+                {
+                    model.Add(app);
+                }
             }
-            return View("~/Views/Pending/Pending.cshtml", model);
+            return PartialView("Pending", model);
         }
 	}
 }
