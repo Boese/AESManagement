@@ -9,6 +9,13 @@
         <div class="jumbotron">
             <div class="row">
                 <div id="pending">Pending Applicants</div>
+                @Ajax.ActionLink("Click here for the Partial View", "UpdatePending", "Pending",
+                    new AjaxOptions
+                        {
+                            UpdateTargetId = "pending",
+                            InsertionMode = InsertionMode.Replace,
+                            HttpMethod = "Get"
+                        })
             </div>
         </div>
     </div>
@@ -17,6 +24,3 @@
     </div>
 </div>
 
-<script>
-    $('#pending').load('/Pending/UpdatePending');
-</script>
