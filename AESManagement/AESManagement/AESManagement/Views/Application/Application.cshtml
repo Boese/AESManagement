@@ -4,20 +4,40 @@
 @{
     if (Model.personalInfo != null)
     {
+        <div class="row">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    Applicant : @Model.personalInfo.firstName @Model.personalInfo.lastName<br />
+                    Status :
+                </div>
+            </div>
+        </div>
+        
         AESManagement.Models.NoteModel temp = new AESManagement.Models.NoteModel();
         temp.appId = Model.personalInfo.applicantId;
         temp.note = Model.notes;
 
-
-        @Html.Partial("~/Views/Application/EditNotes.cshtml",temp)
-        
+        <div class="row">
+            @Html.Partial("~/Views/Application/EditNotes.cshtml",temp)
+        </div>
     <br />
     <hr />
-
-
-
 <div class="panel panel-success">
-    <div class="panel-heading">Personal Info</div>
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-8">
+                Personal Info
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-ok">Approve</span>
+                </button>
+                <button type="button" class="btn btn-danger btn-sm">
+                    <span class="glyphicon glyphicon-remove">Deny</span>
+                </button>
+            </div>
+        </div>
+    </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-md-6">
