@@ -13,26 +13,31 @@ namespace AESManagement.Controllers
     {
         //
         // GET: /Application/
-        public async Task<ActionResult> Applicant(int id = 1)
+        public async Task<ActionResult> Applicant(int id = -1)
         {
             AESManagement.AESDataService.ApplicantApp model = new AESManagement.AESDataService.ApplicantApp();
-            using (DataServiceClient client = new DataServiceClient())
+            if (id != -1)
             {
-                model = await client.getApplicationAsync(id);
-                //await client.lockAppAsync(id);
+                using (DataServiceClient client = new DataServiceClient())
+                {
+                    model = await client.getApplicationAsync(id);
+                    //await client.lockAppAsync(id);
+                }
+                return View(model);
             }
-            return View(model);
+            else
+                return View(model);
         }
 
         [HttpPost]
         public ActionResult UpdateNotes(AESManagement.Models.NoteModel noteModel)
         {
-            using (DataServiceClient client = new DataServiceClient())
-            {
-                client.updateNotes(noteModel.appId, noteModel.note);
-            }
+                using (DataServiceClient client = new DataServiceClient())
+                {
+                    client.updateNotes(noteModel.appId, noteModel.note);
+                }
 
-            return RedirectToAction("Applicant","Application",noteModel.appId);
+                return RedirectToAction("Applicant", "Application", noteModel.appId);
         }
 
 	}

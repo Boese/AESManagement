@@ -1,15 +1,18 @@
 ﻿@model AESManagement.AESDataService.ApplicantApp
 
-<div class="row-fluid">
-    @{AESManagement.Models.NoteModel temp = new AESManagement.Models.NoteModel();
-    temp.appId = Model.personalInfo.applicantId;
-    temp.note = Model.notes;
-    }
 
-    @Html.Partial("~/Views/Application/EditNotes.cshtml",temp)
+@{
+    if (Model.personalInfo != null)
+    {
+        AESManagement.Models.NoteModel temp = new AESManagement.Models.NoteModel();
+        temp.appId = Model.personalInfo.applicantId;
+        temp.note = Model.notes;
+
+
+        @Html.Partial("~/Views/Application/EditNotes.cshtml",temp)
+        
     <br />
     <hr />
-</div>
 
 
 
@@ -252,3 +255,10 @@
         }
     </div>
 </div>
+        }
+        else{
+        <div class="row">
+            <h1><= Select an Application to View</h1>
+        </div>
+             }
+    }
