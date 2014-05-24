@@ -17,7 +17,9 @@ namespace AESManagement.Controllers
         {
             AESManagement.AESDataService.ApplicantApp model = new AESManagement.AESDataService.ApplicantApp();
             using (DataServiceClient client = new DataServiceClient())
+            {
                 model = await client.getApplicationAsync(id);
+            }
             return View(model);
         }
 
