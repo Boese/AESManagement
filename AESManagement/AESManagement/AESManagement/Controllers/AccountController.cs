@@ -12,8 +12,6 @@ using AESManagement.Models;
 
 namespace AESManagement.Controllers
 {
-    [RoutePrefix("secure")]
-    [Route("{action=Login}")]
     [Authorize]
     public class AccountController : Controller
     {
