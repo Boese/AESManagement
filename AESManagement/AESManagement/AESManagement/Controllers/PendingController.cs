@@ -11,6 +11,7 @@ namespace AESManagement.Controllers
     {
         //
         // GET: /Pending/
+        [Authorize]
         public ActionResult UpdatePending()
         {
             List<AESManagement.AESDataService.Applicant> model = new List<AESDataService.Applicant>();
