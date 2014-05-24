@@ -20,5 +20,15 @@ namespace AESManagement.Controllers
                 model = await client.getApplicationAsync(id);
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult UpdateNotes(int appId, string note)
+        {
+            using (DataServiceClient client = new DataServiceClient())
+            {
+                client.updateNotes(appId, note);
+            }
+            return View(Applicant(appId));
+        }
 	}
 }

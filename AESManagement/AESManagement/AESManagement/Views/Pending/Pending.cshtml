@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<AESManagement.AESDataService.Applicant>
 
-@foreach (var item in Model) {
-    @Html.ActionLink(item.fullName, "Applicant", "Application", new { id = item.id }, null)
-    @*@Ajax.ActionLink(item.fullName, "Applicant", "Application", new {id = item.id}, null,
+    @foreach (var item in Model)
+    {
+        @Html.ActionLink(item.fullName, "Applicant", "Application", new { id = item.id }, null)
+        @*@Ajax.ActionLink(item.fullName, "Applicant", "Application", new { id = item.id },
                     new AjaxOptions
                         {
                             UpdateTargetId = "pending",
                             InsertionMode = InsertionMode.Replace,
                             HttpMethod = "Get"
                         })*@
-    <br />
-}
-
+        <br />
+    }
 

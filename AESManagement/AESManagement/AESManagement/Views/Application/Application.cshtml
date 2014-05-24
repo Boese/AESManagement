@@ -1,12 +1,16 @@
 ﻿@model AESManagement.AESDataService.ApplicantApp
 
+@Html.BeginForm("Application","Application",FormMethod.Post) {
 <div class="row-fluid">
-    <textarea class="form-control col-md-12" id="textarea" rows="6" placeholder="Enter Notes"></textarea>
+    <textarea class="form-control col-md-12" id="textarea" rows="6" placeholder="Enter Notes">
+        @Html.DisplayFor(m=> m.notes)
+    </textarea>
     <br />
     <button class="btn btn-success">Save</button>
     <br />
     <hr />
 </div>
+}
 
 <div class="panel panel-success">
     <div class="panel-heading">Personal Info</div>
