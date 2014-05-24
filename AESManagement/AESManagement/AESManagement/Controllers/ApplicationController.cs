@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace AESManagement.Controllers
 {
+    [Authorize]
     public class ApplicationController : Controller
     {
         //
