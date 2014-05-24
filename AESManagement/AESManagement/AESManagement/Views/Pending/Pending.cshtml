@@ -2,6 +2,8 @@
 
 @foreach (var item in Model) {
               
+    <p>
     @Html.ActionLink(item.fullName, "Applicant", "Application", new { id = item.id }, null)
+    </p>
 }
 
