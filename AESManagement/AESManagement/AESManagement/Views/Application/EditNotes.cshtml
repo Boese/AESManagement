@@ -1,0 +1,19 @@
+﻿@model AESManagement.Models.NoteModel
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.ValidationSummary(true)
+
+    @Html.TextAreaFor(model => model.note, new { @class = "form-control col-md-12", @rows = "6", @placeholder = "Enter Notes" })
+    @Html.ValidationMessageFor(model => model.note)
+
+    <button class="btn btn-success" type="submit">Save</button>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -22,13 +22,14 @@ namespace AESManagement.Controllers
         }
 
         [HttpPost]
+        [Route("Application/{appId:int:min(1)}/{note}")]
         public ActionResult UpdateNotes(int appId, string note)
         {
             using (DataServiceClient client = new DataServiceClient())
             {
                 client.updateNotes(appId, note);
             }
-            return View(Applicant(appId));
+            return View();
         }
 	}
 }

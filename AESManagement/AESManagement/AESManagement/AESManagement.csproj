@@ -240,10 +240,23 @@
     </Content>
     <None Include="Service References\AESDataService\configuration91.svcinfo" />
     <None Include="Service References\AESDataService\configuration.svcinfo" />
+    <None Include="Service References\AESDataService\DataService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AESDataService\DataService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AESDataService\DataService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AESDataService\DataService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\AESDataService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\AESDataService\DataService.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -271,6 +284,7 @@
     <Content Include="Views\Application\Applicant.cshtml" />
     <Content Include="Views\Pending\Pending.cshtml" />
     <None Include="Service References\AESDataService\DataService.wsdl" />
+    <Content Include="Views\Application\EditNotes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
