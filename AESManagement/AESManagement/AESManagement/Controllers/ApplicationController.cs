@@ -21,8 +21,13 @@ namespace AESManagement.Controllers
             {
                 using (DataServiceClient client = new DataServiceClient())
                 {
+                    if (Session["_Locked"] != null)
+                    {
+                        await client.unlockAppAsync((int)Session["_Locked"]);
+                    }
                     await client.lockAppAsync(id);
                     model = await client.getApplicationAsync(id);
+                    Session["_Locked"] = id;
                 }
                 return View(model);
             }
