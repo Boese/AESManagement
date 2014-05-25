@@ -36,14 +36,14 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
-    <script>
+    @*<script>
     $(document).ready(function () {
         var refresh = function () {
-            $('#pending').load('@Url.Action("UpdatePending", "Pending")'),
+            $('#pending').load('@Url.Action("UpdatePending", "Pending", new { status = "new" })'),
             setTimeout(refresh, 3000);
         };
         refresh();
     });
-    </script>
+    </script>*@
 </body>
 </html>

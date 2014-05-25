@@ -12,12 +12,12 @@ namespace AESManagement.Controllers
     {
         //
         // GET: /Pending/
-        public ActionResult UpdatePending()
+        public ActionResult UpdatePending(string status)
         {
             List<AESManagement.AESDataService.Applicant> model = new List<AESDataService.Applicant>();
             using (AESDataService.DataServiceClient client = new AESDataService.DataServiceClient())
             {
-                foreach (var app in client.getApplicationsWithStatus("new"))
+                foreach (var app in client.getApplicationsWithStatus(status))
                 {
                     model.Add(app);
                 }
