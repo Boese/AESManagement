@@ -30,6 +30,19 @@ namespace AESManagement.Controllers
                 return View(model);
         }
 
+        public ActionResult SearchByName(AESManagement.Models.searchModel searchModel)
+        {
+            int appId = -1;
+            if (searchModel.firstname != null && searchModel.lastname != null)
+            {
+                using (DataServiceClient client = new DataServiceClient())
+                {
+                    appId = client.getApplicationsWithName(searchModel.firstname, searchModel.lastname).First();
+                }
+            }
+            return Redirect("Applicant/" + appId.ToString());
+        }
+
         [HttpPost]
         public ActionResult UpdateNotes(AESManagement.Models.NoteModel noteModel)
         {
@@ -66,10 +79,6 @@ namespace AESManagement.Controllers
             return RedirectToAction("Applicant", "Application",appId);
         }
 
-        [HttpPost]
-        public ActionResult Search(string searchName)
-        {
-            return RedirectToAction("Applicant", "Application",1);
-        }
+        
 	}
 }

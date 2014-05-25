@@ -6,7 +6,6 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,17 +23,7 @@
                     <li>@Html.ActionLink("Admin", "Index", "Account")</li>
                     <li>@Html.ActionLink("Applicants", "Applicant", "Application")</li>
                 </ul>
-                <form class="navbar-form navbar-left" role="search">
-                        @using (Html.BeginForm("Search", "Application", FormMethod.Post))
-                        {
-                            <div class="col-md-6">
-                                @Html.TextBox("searchName", "", new { @class="form-control"})
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn btn-success" type="submit">Find Applicant</button>
-                            </div>
-                        }
-                </form>
+                @Html.Partial("~/Views/Search/Search.cshtml", new AESManagement.Models.searchModel())
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
