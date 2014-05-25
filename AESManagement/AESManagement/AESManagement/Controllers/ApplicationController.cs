@@ -51,6 +51,7 @@ namespace AESManagement.Controllers
                         if (result.Count() > 0)
                         {
                             appId = result.First();
+                            client.lockApp(appId);
                             Session["_Locked"] = appId;
                         }
                     }
