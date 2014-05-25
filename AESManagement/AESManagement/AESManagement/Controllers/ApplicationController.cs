@@ -52,7 +52,7 @@ namespace AESManagement.Controllers
                     client.updateNotes(noteModel.appId, noteModel.note);
                 }
 
-                return RedirectToAction("Applicant", "Application", noteModel.appId);
+                return RedirectToAction("Applicant", "Application", -1);
         }
 
         [HttpPost]
@@ -64,7 +64,7 @@ namespace AESManagement.Controllers
                 client.updateStatus(appId, "approved");
             }
 
-            return RedirectToAction("Applicant", "Application",appId);
+            return RedirectToAction("Applicant", "Application",-1);
         }
 
         [HttpPost]
@@ -76,7 +76,7 @@ namespace AESManagement.Controllers
                 client.updateStatus(appId, "denied");
             }
 
-            return RedirectToAction("Applicant", "Application",appId);
+            return RedirectToAction("Applicant", "Application",-1);
         }
 
         
