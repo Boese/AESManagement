@@ -40,6 +40,23 @@ namespace AESManagement.Controllers
             int appId = -1;
             if (searchModel.firstname != null && searchModel.lastname != null)
             {
+                try
+                {
+                    using (DataServiceClient client = new DataServiceClient())
+                    {
+                        if (Session["_Locked"] != null)
+                            client.unlockApp((int)Session["_Locked"]);
+                        
+                        var result = client.getApplicationsWithName(searchModel.firstname, searchModel.lastname).First();
+                        if (result != null)
+                        {
+                            appId = result;
+                            Session["_Locked"] = appId;
+                        }
+                    }
+                }
+                catch (Exception)
+                { }
                 using (DataServiceClient client = new DataServiceClient())
                 {
                     if (Session["_Locked"] != null)
@@ -47,7 +64,7 @@ namespace AESManagement.Controllers
                         client.unlockApp((int)Session["_Locked"]);
                     }
                     appId = client.getApplicationsWithName(searchModel.firstname, searchModel.lastname).First();
-                    Session["_Locked"] = appId;
+                    
                 }
             }
             return Redirect("Applicant/" + appId.ToString());
