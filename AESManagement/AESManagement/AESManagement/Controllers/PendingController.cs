@@ -31,6 +31,13 @@ namespace AESManagement.Controllers
 
         public ActionResult setSession(string status = "new")
         {
+            if (Session["_Locked"] != null)
+            {
+                using (AESDataService.DataServiceClient client = new AESDataService.DataServiceClient())
+                {
+                    client.unlockApp((int)Session["_Locked"]);
+                }
+            }
             Session["_Status"] = status;
 
             return RedirectToAction("Applicant","Application",-1);
