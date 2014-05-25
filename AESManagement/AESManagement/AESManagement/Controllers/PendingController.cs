@@ -12,13 +12,9 @@ namespace AESManagement.Controllers
     {
         //
         // GET: /Pending/
-        public ActionResult UpdatePending(string status)
+        public ActionResult UpdatePending()
         {
-            if (status != null)
-            {
-                Session["_Status"] = status;
-            }
-            else
+            if (Session["_Status"] == null)
             {
                 Session["_Status"] = "new";
             }
@@ -31,6 +27,13 @@ namespace AESManagement.Controllers
                 }
             }
             return PartialView("Pending", model);
+        }
+
+        public ActionResult setSession(string status = "new")
+        {
+            Session["_Status"] = status;
+
+            return RedirectToAction("Applicant","Application",-1);
         }
 	}
 }

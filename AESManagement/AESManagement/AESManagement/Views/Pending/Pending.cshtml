@@ -5,9 +5,24 @@
     @Html.ActionLink("Denied", "UpdatePending", "Pending", new { status = "denied" }, new { @class = "btn btn-default" })
 </div>
 
-    @foreach (var item in Model)
-    {
-        @Html.ActionLink(item.fullName, "Applicant", "Application", new { id = item.id }, null)
-        <br />
-    }
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><span class="glyphicon glyphicon-user"></span></td>
+                    <td>@Html.ActionLink(item.fullName, "Applicant", "Application", new { id = item.id }, null)</td>
+                    <td>@Session["_Status"]</td>
+                </tr>
+            }
+    </tbody>
+</table>
+    
 
