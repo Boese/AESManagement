@@ -65,5 +65,11 @@ namespace AESManagement.Controllers
 
             return RedirectToAction("Applicant", "Application",appId);
         }
+
+        [HttpPost]
+        public ActionResult Search(string searchName)
+        {
+            return RedirectToAction("Applicant", "Application",1);
+        }
 	}
 }

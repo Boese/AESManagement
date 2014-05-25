@@ -30,20 +30,24 @@
             </div>
             <div class="col-md-3">
                 <div class="row">
-                    @using (Html.BeginForm("Approve", "Application", FormMethod.Post))
-                    {
-                        @Html.HiddenFor(model => model.personalInfo.applicantId, new { @Name = "appId"})
-                            <button class="btn btn-primary btn-sm" type="submit">
-                                <span class="glyphicon glyphicon-ok"></span> Approve
+                    <div class="col-md-6">
+                        @using (Html.BeginForm("Approve", "Application", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(model => model.personalInfo.applicantId, new { @Name = "appId"})
+                                <button class="btn btn-primary btn-sm" type="submit">
+                                    <span class="glyphicon glyphicon-ok"></span> Approve
+                                </button>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        @using (Html.BeginForm("Deny", "Application", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(model => model.personalInfo.applicantId, new { @Name = "appId" })
+                            <button class="btn btn-danger btn-sm" type="submit">
+                                <span class="glyphicon glyphicon-remove"></span> Deny
                             </button>
-                    }
-                    @using (Html.BeginForm("Deny", "Application", FormMethod.Post))
-                    {
-                        @Html.HiddenFor(model => model.personalInfo.applicantId, new { @Name = "appId" })
-                        <button class="btn btn-danger btn-sm" type="submit">
-                            <span class="glyphicon glyphicon-remove"></span> Deny
-                        </button>
-                    }
+                        }
+                    </div>
                 </div>
             </div>
         </div>

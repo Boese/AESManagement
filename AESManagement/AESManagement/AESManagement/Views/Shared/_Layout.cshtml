@@ -24,6 +24,17 @@
                     <li>@Html.ActionLink("Admin", "Index", "Account")</li>
                     <li>@Html.ActionLink("Applicants", "Applicant", "Application")</li>
                 </ul>
+                <form class="navbar-form navbar-left" role="search">
+                        @using (Html.BeginForm("Search", "Application", FormMethod.Post))
+                        {
+                            <div class="col-md-6">
+                                @Html.TextBox("searchName", "", new { @class="form-control"})
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-success" type="submit">Find Applicant</button>
+                            </div>
+                        }
+                </form>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -41,31 +52,10 @@
     $(document).ready(function () {
         var refresh = function () {
             $('#pending').load('@Url.Action("UpdatePending", "Pending")'),
-            setTimeout(refresh, 3000);
-        };
-        refresh();
+                setTimeout(refresh, 3000);
+            };
+            refresh();
     });
-
-        @*$(function () {
-            $('#approved').click(function () {
-                //alert("APPROVED");
-                @Html.Action("UpdatePending", "Pending", new { status = "approved" });
-            });
-        });
-
-        $(function () {
-            $('#denied').click(function () {
-                //alert("DENIED");
-                @Html.Action("UpdatePending", "Pending", new { status = "denied" });
-            });
-        });
-
-        $(function () {
-            $('#new').click(function () {
-                //alert("NEW");
-                @Html.Action("UpdatePending", "Pending", new { status = "new" });
-                });
-        });*@
     </script>
 </body>
 </html>

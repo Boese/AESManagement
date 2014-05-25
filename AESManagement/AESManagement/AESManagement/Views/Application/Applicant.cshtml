@@ -6,17 +6,18 @@
 <br />
 <div class="row">
     <div class="col-md-3">
+        <div class="col-md-12">
+            <div class="btn-group-justified">
+                @Html.ActionLink("New", "SetSession", "Pending", new { status = "new" }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Approved", "SetSession", "Pending", new { status = "approved" }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Denied", "SetSession", "Pending", new { status = "denied" }, new { @class = "btn btn-default" })
+            </div>
+        </div>
+        <br />
         <div class="panel panel-danger">
             <div class="panel panel-heading">Pending Applicants</div>
             <div class="panel panel-body">
-                <div class="btn-group">
-                    @Html.ActionLink("New", "UpdatePending", "Pending", new { status = "new" }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Approved", "UpdatePending", "Pending", new { status = "approved" }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Denied", "UpdatePending", "Pending", new { status = "denied" }, new { @class = "btn btn-default" })
-                </div>
-                <p id="pending">
-                    @Html.Action("UpdatePending", "Pending")
-                </p>
+                <p id="pending"></p>
             </div>
         </div>
    </div>
@@ -25,3 +26,4 @@
         </div>
     
 </div>
+
