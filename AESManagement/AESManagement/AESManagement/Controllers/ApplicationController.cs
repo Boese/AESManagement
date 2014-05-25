@@ -42,7 +42,12 @@ namespace AESManagement.Controllers
             {
                 using (DataServiceClient client = new DataServiceClient())
                 {
+                    if (Session["_Locked"] != null)
+                    {
+                        client.unlockApp((int)Session["_Locked"]);
+                    }
                     appId = client.getApplicationsWithName(searchModel.firstname, searchModel.lastname).First();
+                    Session["_Locked"] = appId;
                 }
             }
             return Redirect("Applicant/" + appId.ToString());
