@@ -41,13 +41,29 @@ namespace AESManagement.Controllers
                 return RedirectToAction("Applicant", "Application", noteModel.appId);
         }
 
-        public void unlockUser(int appId)
+        [HttpPost]
+        [Route("Application/Applicant/{appId?}")]
+        public ActionResult Approve(int appId = -1)
         {
-            using(DataServiceClient client = new DataServiceClient())
+            using (DataServiceClient client = new DataServiceClient())
             {
                 client.unlockApp(appId);
+                client.updateStatus(appId, "approved");
             }
+
+            return RedirectToAction("Applicant", "Application",appId);
         }
 
+        [HttpGet]
+        public ActionResult Deny(int appId = -1)
+        {
+            using (DataServiceClient client = new DataServiceClient())
+            {
+                client.unlockApp(appId);
+                client.updateStatus(appId, "denied");
+            }
+
+            return RedirectToAction("Applicant", "Application",appId);
+        }
 	}
 }

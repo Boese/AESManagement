@@ -29,12 +29,11 @@
                 Personal Info
             </div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-primary btn-sm">
-                    <span class="glyphicon glyphicon-ok">Approve</span>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm">
-                    <span class="glyphicon glyphicon-remove">Deny</span>
-                </button>
+                @using (Html.BeginForm("Approve", "Application", Model.personalInfo.applicantId, FormMethod.Post))
+                {
+                    @Html.ActionLink("Approve", "Approve", "Application", new { @class = "btn btn-primary btn-sm", @type = "submit"})
+                }
+                    @Html.ActionLink("Deny", "Deny", "Application", Model.personalInfo.applicantId, new { @class = "btn btn-danger btn-sm" })
             </div>
         </div>
     </div>
