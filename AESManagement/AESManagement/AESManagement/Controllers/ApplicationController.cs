@@ -42,7 +42,6 @@ namespace AESManagement.Controllers
         }
 
         [HttpPost]
-        [Route("Application/Applicant/{appId?}")]
         public ActionResult Approve(int appId = -1)
         {
             using (DataServiceClient client = new DataServiceClient())
@@ -54,7 +53,7 @@ namespace AESManagement.Controllers
             return RedirectToAction("Applicant", "Application",appId);
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Deny(int appId = -1)
         {
             using (DataServiceClient client = new DataServiceClient())

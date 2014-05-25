@@ -28,12 +28,23 @@
             <div class="col-md-8">
                 Personal Info
             </div>
-            <div class="col-md-4">
-                @using (Html.BeginForm("Approve", "Application", Model.personalInfo.applicantId, FormMethod.Post))
-                {
-                    @Html.ActionLink("Approve", "Approve", "Application", new { @class = "btn btn-primary btn-sm", @type = "submit"})
-                }
-                    @Html.ActionLink("Deny", "Deny", "Application", Model.personalInfo.applicantId, new { @class = "btn btn-danger btn-sm" })
+            <div class="col-md-3">
+                <div class="row">
+                    @using (Html.BeginForm("Approve", "Application", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(model => model.personalInfo.applicantId, new { @Name = "appId"})
+                            <button class="btn btn-primary btn-sm" type="submit">
+                                <span class="glyphicon glyphicon-ok"></span> Approve
+                            </button>
+                    }
+                    @using (Html.BeginForm("Deny", "Application", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(model => model.personalInfo.applicantId, new { @Name = "appId" })
+                        <button class="btn btn-danger btn-sm" type="submit">
+                            <span class="glyphicon glyphicon-remove"></span> Deny
+                        </button>
+                    }
+                </div>
             </div>
         </div>
     </div>
