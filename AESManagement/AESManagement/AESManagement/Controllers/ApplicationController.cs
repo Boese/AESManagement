@@ -40,10 +40,17 @@ namespace AESManagement.Controllers
             int appId = -1;
             if (searchModel.firstname != null && searchModel.lastname != null)
             {
-                using (DataServiceClient client = new DataServiceClient())
+                try
                 {
-                    appId = client.getApplicationsWithName(searchModel.firstname, searchModel.lastname).First();
+                    using (DataServiceClient client = new DataServiceClient())
+                    {
+                        var result = client.getApplicationsWithName(searchModel.firstname, searchModel.lastname).First();
+                        if(result!=null)
+                            appId = result;
+                    }
                 }
+                catch(Exception)
+                { }
             }
             return Redirect("Applicant/" + appId.ToString());
         }
