@@ -14,10 +14,18 @@ namespace AESManagement.Controllers
         // GET: /Pending/
         public ActionResult UpdatePending(string status)
         {
+            if (status != null)
+            {
+                Session["_Status"] = status;
+            }
+            else
+            {
+                Session["_Status"] = "new";
+            }
             List<AESManagement.AESDataService.Applicant> model = new List<AESDataService.Applicant>();
             using (AESDataService.DataServiceClient client = new AESDataService.DataServiceClient())
             {
-                foreach (var app in client.getApplicationsWithStatus(status))
+                foreach (var app in client.getApplicationsWithStatus((string)Session["_Status"]))
                 {
                     model.Add(app);
                 }

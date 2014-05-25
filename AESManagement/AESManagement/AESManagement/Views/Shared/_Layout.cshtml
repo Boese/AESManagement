@@ -36,14 +36,36 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
-    @*<script>
+
+    <script>
     $(document).ready(function () {
         var refresh = function () {
-            $('#pending').load('@Url.Action("UpdatePending", "Pending", new { status = "new" })'),
+            $('#pending').load('@Url.Action("UpdatePending", "Pending")'),
             setTimeout(refresh, 3000);
         };
         refresh();
     });
-    </script>*@
+
+        @*$(function () {
+            $('#approved').click(function () {
+                //alert("APPROVED");
+                @Html.Action("UpdatePending", "Pending", new { status = "approved" });
+            });
+        });
+
+        $(function () {
+            $('#denied').click(function () {
+                //alert("DENIED");
+                @Html.Action("UpdatePending", "Pending", new { status = "denied" });
+            });
+        });
+
+        $(function () {
+            $('#new').click(function () {
+                //alert("NEW");
+                @Html.Action("UpdatePending", "Pending", new { status = "new" });
+                });
+        });*@
+    </script>
 </body>
 </html>
