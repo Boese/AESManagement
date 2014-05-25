@@ -1,4 +1,9 @@
 ﻿@model IEnumerable<AESManagement.AESDataService.Applicant>
+<div class="btn-group">
+    @Html.ActionLink("New", "UpdatePending", "Pending", new { status = "new" }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Approved", "UpdatePending", "Pending", new { status = "approved" }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Denied", "UpdatePending", "Pending", new { status = "denied" }, new { @class = "btn btn-default" })
+</div>
 
 <table class="table">
     <thead>
