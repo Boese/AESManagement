@@ -36,6 +36,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
+
     <script>
     $(document).ready(function () {
         var refresh = function () {
@@ -44,6 +45,27 @@
         };
         refresh();
     });
+
+        @*$(function () {
+            $('#approved').click(function () {
+                //alert("APPROVED");
+                @Html.Action("UpdatePending", "Pending", new { status = "approved" });
+            });
+        });
+
+        $(function () {
+            $('#denied').click(function () {
+                //alert("DENIED");
+                @Html.Action("UpdatePending", "Pending", new { status = "denied" });
+            });
+        });
+
+        $(function () {
+            $('#new').click(function () {
+                //alert("NEW");
+                @Html.Action("UpdatePending", "Pending", new { status = "new" });
+                });
+        });*@
     </script>
 </body>
 </html>
