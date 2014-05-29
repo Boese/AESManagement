@@ -5,30 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - AES Management Portal</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/modernizr") 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Manage Stores", "Index", "Store", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Admin", "Index", "Account")</li>
-                    <li>@Html.ActionLink("Positions", "Index", "Position")</li>
-                    <li>@Html.ActionLink("Applicants", "Applicant", "Application")</li>
-                </ul>
-                    @Html.Partial("~/Views/Search/Search.cshtml", new AESManagement.Models.searchModel())
-                @Html.Partial("_LoginPartial")
+    <nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target="navbar-collapse" data-toggle="collapse" type="button">
+                        <span class="sr-only">
+
+                            Toggle navigation
+
+                        </span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("AES Hiring Portal", "Applicant", "Application", null, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse navbar-collapse collapse in" style="height: auto;">
+                    @using Microsoft.AspNet.Identity
+                    @if (Request.IsAuthenticated)
+                    {
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a id="admin" class="dropdown-toggle" data-toggle="dropdown" role="button" href="#">
+
+                                    Admin
+
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="admin" role="menu">
+                                    <li role="presentation">
+                                        @Html.ActionLink("Stores", "Index", "Store", null, new { @tabindex = "-1", @role = "menuitem" })
+                                    </li>
+                                    <li role="presentation">
+                                        @Html.ActionLink("Positions", "Index", "Position", null, new { @tabindex = "-1", @role = "menuitem" })
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#" tabindex="-1" role="menuitem">
+
+                                            Questions
+
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            @if (Request.IsAuthenticated)
+                            {
+                                @Html.Partial("~/Views/Search/Search.cshtml", new AESManagement.Models.searchModel())
+                            }
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a id="user" class="dropdown-toggle" data-toggle="dropdown" role="button" href="#">
+
+                                    @User.Identity.GetUserName()
+
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="user" role="menu">
+                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                    }
+                                    <li role="presentation">
+                                        @Html.ActionLink("Change Password", "Manage", "Account", null, new { @title = "Manage", @tabindex = "-1", @role = "menuitem" })
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="javascript:document.getElementById('logoutForm').submit()" tabindex="-1" role="menuitem">
+                                            Log off
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            @Html.Partial("~/Views/Account/Login.cshtml", new AESManagement.Models.LoginViewModel())
+                        </ul>
+                    }
+                </div>
             </div>
         </div>
-    </div>
+        <div class="col-md-2"></div>
+
+    </nav>
     <div class="container body-content">
         @RenderBody()
     </div>
@@ -39,13 +109,13 @@
     @RenderSection("scripts", required: false)
 
     <script>
-    $(document).ready(function () {
-        var refresh = function () {
-            $('#pending').load('@Url.Action("UpdatePending", "Pending")'),
-                setTimeout(refresh, 3000);
+        $(document).ready(function () {
+            var refresh = function () {
+                $('#pending').load('@Url.Action("UpdatePending", "Pending")'),
+                    setTimeout(refresh, 3000);
             };
             refresh();
-    });
+        });
     </script>
 </body>
 </html>

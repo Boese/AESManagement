@@ -279,7 +279,7 @@ namespace AESManagement.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
@@ -345,7 +345,7 @@ namespace AESManagement.Controllers
             }
             else
             {
-                return RedirectToAction("Applicant", "Application");
+                return RedirectToAction("Index", "Home");
             }
         }
 
