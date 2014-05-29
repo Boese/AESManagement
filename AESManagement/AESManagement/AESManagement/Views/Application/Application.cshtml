@@ -60,7 +60,9 @@
             </div>
             <div class="col-md-6">
                 @Html.Label("Social Security Number: ")
-                @Html.DisplayFor(m => m.personalInfo.socialNum)
+                @{ string ssn;
+                   ssn = "*****" + Model.personalInfo.socialNum.Substring(5); }
+                @Html.DisplayFor(m => ssn)
             </div>
         </div>
         <div class="row">
