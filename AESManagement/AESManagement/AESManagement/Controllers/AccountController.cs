@@ -345,7 +345,7 @@ namespace AESManagement.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Applicant", "Application");
             }
         }
 
