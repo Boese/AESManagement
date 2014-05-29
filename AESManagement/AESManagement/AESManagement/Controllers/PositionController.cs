@@ -71,7 +71,6 @@ namespace AESManagement.Controllers
                 model.Education = position.education;
                 model.Requirements = position.requirements;
                 model.Pay = position.pay;
-                await client.updatePositionAsync(position);
             }
             return View(model);
         }

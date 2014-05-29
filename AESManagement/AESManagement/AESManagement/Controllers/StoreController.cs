@@ -72,7 +72,6 @@ namespace AESManagement.Controllers
                 model.City = store.city;
                 model.State = store.state;
                 model.Zip = store.zip;
-                client.updateStore(store);
             }
             return View(model);
         }

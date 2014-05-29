@@ -12,19 +12,24 @@ namespace AESManagement.Models
         [DisplayName("Position #")]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "*")]
         [DisplayName("Position Title")]
         public string Title { get; set; }
 
+        [Required(ErrorMessage = "*")]
         [DisplayName("Requirements")]
         public string Requirements { get; set; }
 
+        [Required(ErrorMessage = "*")]
         [DisplayName("Education")]
         public string Education { get; set; }
 
+        [Required(ErrorMessage = "*")]
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
+        [Required(ErrorMessage = "*")]
         [DisplayName("Hourly Pay")]
         public string Pay { get; set; }
     }

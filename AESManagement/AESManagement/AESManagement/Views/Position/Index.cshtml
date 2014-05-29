@@ -6,9 +6,6 @@
 <table class="table">
     <tr>
         <th>
-            Position #
-        </th>
-        <th>
             Title
         </th>
         <th>
@@ -28,9 +25,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.positionId)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.title)
         </td>
